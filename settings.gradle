@@ -1,0 +1,3 @@
+include ':VPEasyWidget'
+include ':app'
+rootProject.name = "VPEasyWidgetSample"
