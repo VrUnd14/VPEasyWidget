@@ -3,8 +3,12 @@
 package com.vp.vpeasywidget.utils
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Build
 import android.text.Html
@@ -115,4 +119,43 @@ fun generateRandomColor(): Int {
 // showToast
 fun Context.showToast(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+}
+
+// Check Internet
+@Suppress("DEPRECATION")
+fun Context.isOnline(): Boolean {
+    var result = false // Returns connection type. 0: none; 1: mobile data; 2: wifi
+    val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        cm?.run {
+            cm.getNetworkCapabilities(cm.activeNetwork)?.run {
+                if (hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    result = true
+                } else if (hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    result = true
+                }
+            }
+        }
+    } else {
+        cm?.run {
+            cm.activeNetworkInfo?.run {
+                if (type == ConnectivityManager.TYPE_WIFI) {
+                    result = true
+                } else if (type == ConnectivityManager.TYPE_MOBILE) {
+                    result = true
+                }
+            }
+        }
+    }
+    return result
+}
+
+// Open App Store
+fun Context.goToAppStorePage() {
+    val appPackageName = this.packageName
+    try {
+        this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+    } catch (e: Exception) {
+        this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=$appPackageName")))
+    }
 }
