@@ -17,7 +17,7 @@ import com.vp.vpeasywidget.utils.setVisible
 import kotlinx.android.synthetic.main.vp_update_available.*
 import kotlinx.android.synthetic.main.vp_update_available.view.*
 
-@SuppressLint("SetTextI18n", "RestrictedApi")
+@SuppressLint("SetTextI18n", "RestrictedApi", "ViewConstructor")
 class VPAppUpdate @JvmOverloads constructor(withIcon: Int, context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val mContext = context
@@ -63,7 +63,6 @@ class VPAppUpdate @JvmOverloads constructor(withIcon: Int, context: Context, att
 
     init {
         View.inflate(mContext, R.layout.vp_update_available, this)
-
         vpAppLogo.setImageResource(appIcon)
         remindLater.supportBackgroundTintList = ColorStateList.valueOf(laterBackColor)
         remindLater.setTextColor(laterTextColor)

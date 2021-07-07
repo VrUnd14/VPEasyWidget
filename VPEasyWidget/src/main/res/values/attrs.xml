@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <declare-styleable name="VPAppUpdate">-->
-<!--        <attr name="logo" format="reference" />-->
-<!--        <attr name="later_backColor" format="color" />-->
-<!--        <attr name="update_backColor" format="color" />-->
-<!--        <attr name="later_textColor" format="color" />-->
-<!--        <attr name="update_textColor" format="color" />-->
-<!--    </declare-styleable>-->
+    <declare-styleable name="VPTextView">
+        <attr name="icon" format="reference" />
+        <attr name="icon_size" format="dimension" />
+        <attr name="iconTint" format="color" />
+        <attr name="showIcon" format="boolean" />
+        <attr name="icon_position" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="bottom" value="3"/>
+        </attr>
+        <attr name="backColor" format="color" />
+        <attr name="isCapsule" format="boolean" />
+        <attr name="capsuleRadius" format="dimension" />
+        <attr name="cornerRadiusTopLeft" format="dimension" />
+        <attr name="cornerRadiusBottomLeft" format="dimension" />
+        <attr name="cornerRadiusTopRight" format="dimension" />
+        <attr name="cornerRadiusBottomRight" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="hasBorder" format="boolean" />
+    </declare-styleable>
 </resources>
