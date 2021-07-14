@@ -4,6 +4,7 @@ package com.vp.vpeasywidget.utils
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
@@ -18,6 +19,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import java.net.InetAddress
+import java.net.NetworkInterface
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
@@ -158,4 +161,46 @@ fun Context.goToAppStorePage() {
     } catch (e: Exception) {
         this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=$appPackageName")))
     }
+}
+
+// DP <-> PX
+val Int.dp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+val Int.px: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+// Get IP Address
+fun getIPAddress(): String {
+    try {
+        val interfaces: List<NetworkInterface> =
+                Collections.list(NetworkInterface.getNetworkInterfaces())
+        for (intf in interfaces) {
+            val addrs: List<InetAddress> = Collections.list(intf.inetAddresses)
+            for (addr in addrs) {
+                if (!addr.isLoopbackAddress) {
+                    val sAddr: String = addr.hostAddress
+                    val isIPv4 = sAddr.indexOf(':') < 0
+                    if (isIPv4) return sAddr
+                }
+            }
+        }
+    } catch (ignored: java.lang.Exception) {
+    }
+    return ""
+}
+
+fun Context.getNavBarHeight(): Int {
+    var status = 0
+    val resourceId = this.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        status = this.resources.getDimensionPixelSize(resourceId)
+    }
+    return status
+}
+
+fun Context.getStatusBarHeight(): Int {
+    var status = 0
+    val resourceId = this.resources.getIdentifier("status_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        status = this.resources.getDimensionPixelSize(resourceId)
+    }
+    return status
 }

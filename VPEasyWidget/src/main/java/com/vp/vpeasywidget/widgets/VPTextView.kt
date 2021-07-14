@@ -1,16 +1,18 @@
 package com.vp.vpeasywidget.widgets
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatTextView
 import com.vp.vpeasywidget.R
 import com.vp.vpeasywidget.utils.getDrawableRes
 
+@Suppress("DEPRECATION")
 class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.textViewStyle) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     private val mContext = context
@@ -114,8 +116,6 @@ class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet
             dg.setStroke(borderWidth.takeIf { hasBorder } ?: 0, borderColor)
         }
 
-    var drawableClickListener: DrawableClickListener? = null
-
     init {
         val shape = GradientDrawable()
         shape.shape = GradientDrawable.RECTANGLE
@@ -172,73 +172,43 @@ class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet
         return null
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if (event?.action == MotionEvent.ACTION_DOWN && showIcon && resizeIcon() != null) {
-            when (iconPosition) {
-                LEFT -> if(event.rawX <= (this.left + this.totalPaddingLeft)) {
-                    drawableClickListener?.onClick(this,DrawableClickListener.DrawablePosition.LEFT)
-                    return true
-                }
-                TOP -> if(event.rawY <= (this.top + this.totalPaddingTop)) {
-                    drawableClickListener?.onClick(this,DrawableClickListener.DrawablePosition.TOP)
-                    return true
-                }
-                RIGHT -> if(event.rawX <= (this.right + this.totalPaddingEnd)) {
-                    drawableClickListener?.onClick(this, DrawableClickListener.DrawablePosition.RIGHT)
-                    return true
-                }
-                BOTTOM -> if(event.rawY <= (this.bottom + this.totalPaddingBottom)) {
-                    drawableClickListener?.onClick(this,DrawableClickListener.DrawablePosition.BOTTOM)
-                    return true
-                }
-            }
-            return false
-        }
-        return false
-    }
-
     inner class WrappedDrawable(private val drawable: Drawable) : Drawable() {
 
         override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
             //update bounds to get correctly
             super.setBounds(left, top, right, bottom)
-            val drawable: Drawable? = drawable
-            drawable?.setBounds(left, top, right, bottom)
+            val drawable: Drawable = drawable
+            drawable.setBounds(left, top, right, bottom)
         }
 
         override fun setAlpha(alpha: Int) {
-            val drawable: Drawable? = drawable
-            if (drawable != null) {
-                drawable.alpha = alpha
-            }
+            val drawable: Drawable = drawable
+            drawable.alpha = alpha
         }
 
         override fun setColorFilter(colorFilter: ColorFilter?) {
-            val drawable: Drawable? = drawable
-            if (drawable != null) {
-                drawable.colorFilter = colorFilter
-            }
+            val drawable: Drawable = drawable
+            drawable.colorFilter = colorFilter
         }
 
         override fun getOpacity(): Int {
-            val drawable: Drawable? = drawable
-            return drawable?.opacity ?: PixelFormat.UNKNOWN
+            val drawable: Drawable = drawable
+            return drawable.opacity
         }
 
         override fun draw(canvas: Canvas) {
-            val drawable: Drawable? = drawable
-            drawable?.draw(canvas)
+            val drawable: Drawable = drawable
+            drawable.draw(canvas)
         }
 
         override fun getIntrinsicWidth(): Int {
-            val drawable: Drawable? = drawable
-            return drawable?.bounds?.width() ?: 0
+            val drawable: Drawable = drawable
+            return drawable.bounds.width()
         }
 
         override fun getIntrinsicHeight(): Int {
-            val drawable: Drawable? = drawable
-            return drawable?.bounds?.height() ?: 0
+            val drawable: Drawable = drawable
+            return drawable.bounds.height()
         }
     }
 
@@ -248,13 +218,5 @@ class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet
             dg.cornerRadii = floatArrayOf(capsuleRadius, capsuleRadius, capsuleRadius, capsuleRadius, capsuleRadius, capsuleRadius, capsuleRadius, capsuleRadius)
         else
             dg.cornerRadii = floatArrayOf(cornerRadiusTopLeft, cornerRadiusTopLeft, cornerRadiusTopRight, cornerRadiusTopRight, cornerRadiusBottomRight, cornerRadiusBottomRight, cornerRadiusBottomLeft, cornerRadiusBottomLeft)
-    }
-
-    interface DrawableClickListener {
-        enum class DrawablePosition {
-            TOP, BOTTOM, LEFT, RIGHT
-        }
-
-        fun onClick(view: VPTextView, target: DrawablePosition)
     }
 }
