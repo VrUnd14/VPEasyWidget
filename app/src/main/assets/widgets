@@ -6,5 +6,9 @@
   {
     "widget": "VPTextView",
     "lastUpdate": "24/06/2021"
+  },
+  {
+    "widget": "VPImageView",
+    "lastUpdate": "15/07/2021"
   }
 ]

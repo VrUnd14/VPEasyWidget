@@ -78,7 +78,8 @@ class MainActivity : AppCompatActivity() {
                 root.mainCard.setOnClickListener {
                     when (data[adapterPosition].widget) {
                         "VPAppUpdate" -> actionVPAppUpdate()
-                        "VPTextView" -> actionVPTextView()
+                        "VPTextView" -> startActivity(Intent(context, VPTextViewExample::class.java))
+                        "VPImageView" -> startActivity(Intent(context, VPImageViewExample::class.java))
                     }
                 }
             }
@@ -96,9 +97,5 @@ class MainActivity : AppCompatActivity() {
             override fun onRemindMeLater() {
             }
         }
-    }
-
-    private fun actionVPTextView() {
-        startActivity(Intent(context, VPTextViewExample::class.java))
     }
 }

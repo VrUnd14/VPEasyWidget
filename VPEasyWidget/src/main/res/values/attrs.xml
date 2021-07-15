@@ -22,4 +22,9 @@
         <attr name="borderWidth" format="dimension" />
         <attr name="hasBorder" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="VPImageView">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="dynamicHeight" format="boolean" />
+    </declare-styleable>
 </resources>
