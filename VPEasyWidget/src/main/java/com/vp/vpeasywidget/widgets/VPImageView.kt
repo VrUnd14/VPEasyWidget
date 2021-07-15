@@ -17,13 +17,19 @@ class VPImageView @JvmOverloads constructor(context: Context, attrs: AttributeSe
     private var path: Path? = null
     private var rect: RectF? = null
 
+    companion object {
+        const val NORMAL = 0
+        const val DYNAMIC = 1
+        const val SQUARE = 2
+    }
+
     var cornerRadius = 0F
         set(value) {
             field = value
             invalidate()
         }
 
-    var dynamicHeight = false
+    var shape = NORMAL
         set(value) {
             field = value
             invalidate()
@@ -33,7 +39,7 @@ class VPImageView @JvmOverloads constructor(context: Context, attrs: AttributeSe
         val parent = mContext.obtainStyledAttributes(attrs, R.styleable.VPImageView)
 
         cornerRadius = parent.getDimensionPixelSize(R.styleable.VPImageView_cornerRadius, 0).toFloat()
-        dynamicHeight = parent.getBoolean(R.styleable.VPImageView_dynamicHeight, false)
+        shape = parent.getInt(R.styleable.VPImageView_shape, NORMAL)
 
         parent.recycle()
 
@@ -50,10 +56,20 @@ class VPImageView @JvmOverloads constructor(context: Context, attrs: AttributeSe
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val d = this.drawable
-        if (d != null && dynamicHeight) {
-            val width = MeasureSpec.getSize(widthMeasureSpec)
-            val height = ceil((width * d.intrinsicHeight / d.intrinsicWidth).toDouble())
-            this.setMeasuredDimension(width, height.toInt())
+        if (d != null) {
+            when (shape) {
+                DYNAMIC -> {
+                    val width = MeasureSpec.getSize(widthMeasureSpec)
+                    val height = ceil((width * d.intrinsicHeight / d.intrinsicWidth).toDouble())
+                    this.setMeasuredDimension(width, height.toInt())
+                }
+                SQUARE -> {
+                    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+                    val width = measuredWidth
+                    setMeasuredDimension(width, width)
+                }
+                NORMAL -> super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+            }
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         }
