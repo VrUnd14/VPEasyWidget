@@ -31,4 +31,12 @@
             <enum name="square" value="2"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="VPNoDataWidget">
+        <attr name="no_icon" format="reference" />
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:textStyle" />
+    </declare-styleable>
 </resources>

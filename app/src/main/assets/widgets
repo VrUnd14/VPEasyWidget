@@ -10,5 +10,9 @@
   {
     "widget": "VPImageView",
     "lastUpdate": "15/07/2021"
+  },
+  {
+    "widget": "VPNoDataWidget",
+    "lastUpdate": "15/07/2021"
   }
 ]

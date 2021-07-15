@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                         "VPAppUpdate" -> actionVPAppUpdate()
                         "VPTextView" -> startActivity(Intent(context, VPTextViewExample::class.java))
                         "VPImageView" -> startActivity(Intent(context, VPImageViewExample::class.java))
+                        "VPNoDataWidget" -> startActivity(Intent(context, VPNoDataExample::class.java))
                     }
                 }
             }

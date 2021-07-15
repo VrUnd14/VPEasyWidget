@@ -26,6 +26,9 @@
         <activity
             android:name=".VPImageViewExample"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".VPNoDataExample"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -114,7 +115,7 @@ fun String.applyHTML(): Spanned {
 
 // Random Light color
 fun generateRandomColor(): Int {
-    val colors = arrayOf("#7986CB", "#64B5F6", "#4FC3F7", "#4DD0E1", "#4DB6AC", "#81C784", "#AED581", " #FFB74D", "#FF8A65", "#A1887F", "#78909C")
+    val colors = arrayOf("#7986CB", "#64B5F6", "#4FC3F7", "#4DD0E1", "#4DB6AC", "#81C784", "#AED581", "#FFB74D", "#FF8A65", "#A1887F", "#78909C")
     val mRandom = Random.nextInt(colors.size)
     return Color.parseColor(colors[mRandom])
 }
@@ -166,6 +167,8 @@ fun Context.goToAppStorePage() {
 // DP <-> PX
 val Int.dp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 val Int.px: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+val Int.sp: Int get() = (this / Resources.getSystem().displayMetrics.scaledDensity).toInt()
+val Int.sPx: Int get() = (this * Resources.getSystem().displayMetrics.scaledDensity).toInt()
 
 // Get IP Address
 fun getIPAddress(): String {
