@@ -10,14 +10,13 @@ import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import android.util.Log
-import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import java.net.InetAddress
@@ -59,13 +58,8 @@ fun View.closeKeyboard(context: Context) {
 }
 
 // String upper-lower
-fun String.upperCased(): String {
-    return this.toUpperCase(Locale.getDefault())
-}
-
-fun String.lowerCased(): String {
-    return this.toLowerCase(Locale.getDefault())
-}
+val String.upperCased: String get() = this.toUpperCase(Locale.getDefault())
+val String.lowerCased: String get() = this.toLowerCase(Locale.getDefault())
 
 // Print Long Log
 fun String.convertToLongLog() {
@@ -190,6 +184,7 @@ fun getIPAddress(): String {
     return ""
 }
 
+// Get System Bar Height
 fun Context.getNavBarHeight(): Int {
     var status = 0
     val resourceId = this.resources.getIdentifier("navigation_bar_height", "dimen", "android")
@@ -207,3 +202,6 @@ fun Context.getStatusBarHeight(): Int {
     }
     return status
 }
+
+// Trimmed Text
+val TextView.trimmedText: String get() = this.text.toString().trim()
