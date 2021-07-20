@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <com.vp.vpeasywidget.widgets.VPSpinner
+            android:id="@+id/countriesSpn1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:sp_array="@array/test"
+            app:sp_hasLabel="true"
+            app:sp_labelText="Countries" />
+
+        <com.vp.vpeasywidget.widgets.VPSpinner
+            android:id="@+id/countriesSpn2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            app:sp_array="@array/test"
+            app:sp_cross_tint="@color/white"
+            app:sp_hasLabel="false"
+            app:sp_tint="#ff0000" />
+
+        <com.vp.vpeasywidget.widgets.VPSpinner
+            android:id="@+id/countriesSpn3"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            app:sp_array="@array/test"
+            app:sp_backColor="#e3e3e3"
+            app:sp_cross_tint="@color/white"
+            app:sp_hasBorder="false"
+            app:sp_hasLabel="true"
+            app:sp_labelText="Countries"
+            app:sp_labelTextSize="16dp"
+            app:sp_label_position="top"
+            app:sp_tint="@color/purple_200" />
+
+        <com.vp.vpeasywidget.widgets.VPSpinner
+            android:id="@+id/countriesSpn4"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            app:sp_dropIconTint="@android:color/white"
+            app:sp_dropSize="48dp"
+            app:sp_hasLabel="false"
+            app:sp_tint="@color/purple_500" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

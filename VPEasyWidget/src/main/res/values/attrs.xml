@@ -39,4 +39,28 @@
         <attr name="android:textColor" />
         <attr name="android:textStyle" />
     </declare-styleable>
+
+    <declare-styleable name="VPSpinner">
+        <attr name="sp_cornerRadius" format="dimension" />
+        <attr name="sp_backColor" format="color" />
+        <attr name="sp_hasBorder" format="boolean" />
+        <attr name="sp_borderWidth" format="dimension" />
+        <attr name="sp_tint" format="color" />
+        <attr name="sp_cross_tint" format="color" />
+
+        <attr name="sp_hasLabel" format="boolean" />
+        <attr name="sp_label_position" format="enum">
+            <enum name="in" value="1" />
+            <enum name="top" value="2" />
+        </attr>
+        <attr name="sp_labelText" format="string" />
+        <attr name="sp_labelTextSize" format="dimension" />
+        <attr name="sp_labelTextColor" format="color" />
+
+        <attr name="sp_dropSize" format="dimension" />
+        <attr name="sp_dropIcon" format="reference" />
+        <attr name="sp_dropIconTint" format="color" />
+
+        <attr name="sp_array" format="reference" />
+    </declare-styleable>
 </resources>

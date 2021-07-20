@@ -14,5 +14,9 @@
   {
     "widget": "VPNoDataWidget",
     "lastUpdate": "15/07/2021"
+  },
+  {
+    "widget": "VPSpinner",
+    "lastUpdate": "20/07/2021"
   }
 ]

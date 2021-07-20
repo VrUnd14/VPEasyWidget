@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">VPEasyWidgetSample</string>
+    <string-array name="test">
+        <item>OnePlus</item>
+        <item>iPhone</item>
+        <item>Samsung</item>
+        <item>Vivo</item>
+        <item>Oppo</item>
+    </string-array>
 </resources>
