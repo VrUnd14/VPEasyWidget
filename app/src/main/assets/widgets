@@ -18,5 +18,9 @@
   {
     "widget": "VPSpinner",
     "lastUpdate": "20/07/2021"
+  },
+  {
+    "widget": "VPEditText",
+    "lastUpdate": "21/07/2021"
   }
 ]

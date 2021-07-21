@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                         "VPImageView" -> startActivity(Intent(context, VPImageViewExample::class.java))
                         "VPNoDataWidget" -> startActivity(Intent(context, VPNoDataExample::class.java))
                         "VPSpinner" -> startActivity(Intent(context, VPSpinnerExample::class.java))
+                        "VPEditText" -> startActivity(Intent(context, VPEditTextExample::class.java))
                     }
                 }
             }

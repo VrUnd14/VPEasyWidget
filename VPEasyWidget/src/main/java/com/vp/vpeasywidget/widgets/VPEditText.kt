@@ -5,12 +5,13 @@ import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 import com.vp.vpeasywidget.R
 import com.vp.vpeasywidget.utils.getDrawableRes
 
 @Suppress("DEPRECATION")
-class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.textViewStyle) : AppCompatTextView(context, attrs, defStyleAttr) {
+class VPEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle) : AppCompatEditText(context, attrs, defStyleAttr) {
 
     private val mContext = context
 
@@ -130,30 +131,30 @@ class VPTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet
         shape.shape = GradientDrawable.RECTANGLE
         this.background = shape
 
-        val parent = mContext.obtainStyledAttributes(attrs, R.styleable.VPTextView)
+        val parent = mContext.obtainStyledAttributes(attrs, R.styleable.VPEditText)
 
-        icon = parent.getResourceId(R.styleable.VPTextView_icon, icon)
-        showIcon = parent.getBoolean(R.styleable.VPTextView_showIcon, showIcon)
-        iconSize = parent.getDimensionPixelSize(R.styleable.VPTextView_icon_size, iconSize)
-        iconTint = parent.getColor(R.styleable.VPTextView_iconTint, iconTint)
+        icon = parent.getResourceId(R.styleable.VPEditText_et_icon, icon)
+        showIcon = parent.getBoolean(R.styleable.VPEditText_et_showIcon, showIcon)
+        iconSize = parent.getDimensionPixelSize(R.styleable.VPEditText_et_icon_size, iconSize)
+        iconTint = parent.getColor(R.styleable.VPEditText_et_iconTint, iconTint)
 
-        if (parent.hasValue(R.styleable.VPTextView_icon_position)) {
-            iconPosition = parent.getInt(R.styleable.VPTextView_icon_position, LEFT)
+        if (parent.hasValue(R.styleable.VPEditText_et_icon_position)) {
+            iconPosition = parent.getInt(R.styleable.VPEditText_et_icon_position, LEFT)
         }
 
-        backColor = parent.getColor(R.styleable.VPTextView_backColor, backColor)
-        isCapsule = parent.getBoolean(R.styleable.VPTextView_isCapsule, isCapsule)
-        capsuleRadius = parent.getDimensionPixelSize(R.styleable.VPTextView_capsuleRadius, 200).toFloat()
-        cornerRadiusTopLeft = parent.getDimensionPixelSize(R.styleable.VPTextView_cornerRadiusTopLeft, 0).toFloat()
-        cornerRadiusTopRight = parent.getDimensionPixelSize(R.styleable.VPTextView_cornerRadiusTopRight, 0).toFloat()
-        cornerRadiusBottomLeft = parent.getDimensionPixelSize(R.styleable.VPTextView_cornerRadiusBottomLeft, 0).toFloat()
-        cornerRadiusBottomRight = parent.getDimensionPixelSize(R.styleable.VPTextView_cornerRadiusBottomRight, 0).toFloat()
-        borderColor = parent.getColor(R.styleable.VPTextView_borderColor, borderColor)
-        borderWidth = parent.getDimensionPixelSize(R.styleable.VPTextView_borderWidth, borderWidth)
-        hasBorder = parent.getBoolean(R.styleable.VPTextView_hasBorder, hasBorder)
+        backColor = parent.getColor(R.styleable.VPEditText_et_backColor, backColor)
+        isCapsule = parent.getBoolean(R.styleable.VPEditText_et_isCapsule, isCapsule)
+        capsuleRadius = parent.getDimensionPixelSize(R.styleable.VPEditText_et_capsuleRadius, 200).toFloat()
+        cornerRadiusTopLeft = parent.getDimensionPixelSize(R.styleable.VPEditText_et_cornerRadiusTopLeft, 0).toFloat()
+        cornerRadiusTopRight = parent.getDimensionPixelSize(R.styleable.VPEditText_et_cornerRadiusTopRight, 0).toFloat()
+        cornerRadiusBottomLeft = parent.getDimensionPixelSize(R.styleable.VPEditText_et_cornerRadiusBottomLeft, 0).toFloat()
+        cornerRadiusBottomRight = parent.getDimensionPixelSize(R.styleable.VPEditText_et_cornerRadiusBottomRight, 0).toFloat()
+        borderColor = parent.getColor(R.styleable.VPEditText_et_borderColor, borderColor)
+        borderWidth = parent.getDimensionPixelSize(R.styleable.VPEditText_et_borderWidth, borderWidth)
+        hasBorder = parent.getBoolean(R.styleable.VPEditText_et_hasBorder, hasBorder)
 
-        if (parent.hasValue(R.styleable.VPTextView_customFont)) {
-            customFont = parent.getString(R.styleable.VPTextView_customFont) ?: ""
+        if (parent.hasValue(R.styleable.VPEditText_et_customFont)) {
+            customFont = parent.getString(R.styleable.VPEditText_et_customFont) ?: ""
         }
 
         parent.recycle()

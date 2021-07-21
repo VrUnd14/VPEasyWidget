@@ -32,6 +32,9 @@
         <activity
             android:name=".VPSpinnerExample"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".VPEditTextExample"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

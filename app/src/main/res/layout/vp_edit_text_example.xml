@@ -23,53 +23,29 @@
         android:orientation="horizontal"
         android:paddingHorizontal="10dp">
 
-        <com.vp.vpeasywidget.widgets.VPTextView
-            android:layout_width="wrap_content"
+        <com.vp.vpeasywidget.widgets.VPEditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="Example 1"
+            android:hint="Example 1"
             android:textColor="@color/white"
-            app:backColor="@color/purple_500"
-            app:isCapsule="true" />
+            app:et_backColor="@color/purple_500"
+            app:et_isCapsule="true" />
 
-        <com.vp.vpeasywidget.widgets.VPTextView
-            android:layout_width="wrap_content"
+        <com.vp.vpeasywidget.widgets.VPEditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="Example 2"
+            android:hint="Example 2"
             android:textColor="@color/white"
             app:backColor="@color/purple_200"
             app:capsuleRadius="5dp"
             app:isCapsule="true" />
-
-        <com.vp.vpeasywidget.widgets.VPTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:text="Example 3"
-            android:textColor="@color/white"
-            app:backColor="#ff0000"
-            app:cornerRadiusBottomRight="5dp"
-            app:cornerRadiusTopLeft="5dp" />
-
-        <com.vp.vpeasywidget.widgets.VPTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:text="Example 3"
-            android:textColor="@color/black"
-            app:borderColor="#0000ff"
-            app:borderWidth="1dp"
-            app:cornerRadiusTopLeft="10dp"
-            app:cornerRadiusTopRight="10dp"
-            app:hasBorder="true" />
     </LinearLayout>
 
     <View
@@ -95,7 +71,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="10dp">
 
-        <com.vp.vpeasywidget.widgets.VPTextView
+        <com.vp.vpeasywidget.widgets.VPEditText
             android:id="@+id/leftIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,26 +79,12 @@
             android:gravity="center"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="Example 1"
+            android:hint="Example 1"
             android:textColor="@color/black"
-            app:icon="@drawable/telephone"
-            app:icon_size="20dp" />
+            app:et_icon="@drawable/telephone"
+            app:et_icon_size="20dp" />
 
-        <com.vp.vpeasywidget.widgets.VPTextView
-            android:id="@+id/topIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:drawablePadding="10dp"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:text="Example 3"
-            android:textColor="@color/black"
-            app:icon="@drawable/address"
-            app:icon_position="top"
-            app:icon_size="24dp" />
-
-        <com.vp.vpeasywidget.widgets.VPTextView
+        <com.vp.vpeasywidget.widgets.VPEditText
             android:id="@+id/rightIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,14 +92,14 @@
             android:drawablePadding="5dp"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="Example 2"
+            android:hint="Example 2"
             android:textColor="@color/white"
-            app:backColor="@color/purple_200"
-            app:capsuleRadius="5dp"
-            app:icon="@drawable/email_address"
-            app:icon_position="right"
-            app:icon_size="20dp"
-            app:isCapsule="true" />
+            app:et_backColor="@color/purple_200"
+            app:et_capsuleRadius="5dp"
+            app:et_icon="@drawable/email_address"
+            app:et_icon_position="right"
+            app:et_icon_size="20dp"
+            app:et_isCapsule="true" />
     </LinearLayout>
 
     <View
@@ -162,26 +124,26 @@
         android:orientation="horizontal"
         android:paddingHorizontal="10dp">
 
-        <com.vp.vpeasywidget.widgets.VPTextView
+        <com.vp.vpeasywidget.widgets.VPEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="Example 1"
-            app:customFont="Chilanka-Regular.ttf"/>
+            android:hint="Example 1"
+            app:et_customFont="Chilanka-Regular.ttf"/>
 
-        <com.vp.vpeasywidget.widgets.VPTextView
+        <com.vp.vpeasywidget.widgets.VPEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:paddingHorizontal="10dp"
             android:textStyle="bold"
             android:paddingVertical="5dp"
-            android:text="Example 2"
+            android:hint="Example 2"
             android:textColor="@color/white"
-            app:backColor="@color/purple_200"
-            app:capsuleRadius="5dp"
-            app:customFont="Chilanka-Regular.ttf"
-            app:isCapsule="true" />
+            app:et_backColor="@color/purple_200"
+            app:et_capsuleRadius="5dp"
+            app:et_customFont="Chilanka-Regular.ttf"
+            app:et_isCapsule="true" />
     </LinearLayout>
 </LinearLayout>
