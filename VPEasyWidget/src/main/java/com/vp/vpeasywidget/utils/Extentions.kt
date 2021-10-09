@@ -2,6 +2,7 @@
 
 package com.vp.vpeasywidget.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
@@ -11,6 +12,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings
 import android.text.Html
 import android.text.Spanned
 import android.util.Log
@@ -109,7 +111,19 @@ fun String.applyHTML(): Spanned {
 
 // Random Light color
 fun generateRandomColor(): Int {
-    val colors = arrayOf("#7986CB", "#64B5F6", "#4FC3F7", "#4DD0E1", "#4DB6AC", "#81C784", "#AED581", "#FFB74D", "#FF8A65", "#A1887F", "#78909C")
+    val colors = arrayOf(
+        "#7986CB",
+        "#64B5F6",
+        "#4FC3F7",
+        "#4DD0E1",
+        "#4DB6AC",
+        "#81C784",
+        "#AED581",
+        "#FFB74D",
+        "#FF8A65",
+        "#A1887F",
+        "#78909C"
+    )
     val mRandom = Random.nextInt(colors.size)
     return Color.parseColor(colors[mRandom])
 }
@@ -152,9 +166,19 @@ fun Context.isOnline(): Boolean {
 fun Context.goToAppStorePage() {
     val appPackageName = this.packageName
     try {
-        this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+        this.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("market://details?id=$appPackageName")
+            )
+        )
     } catch (e: Exception) {
-        this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=$appPackageName")))
+        this.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("http://play.google.com/store/apps/details?id=$appPackageName")
+            )
+        )
     }
 }
 
@@ -183,6 +207,30 @@ fun getIPAddress(): String {
     }
     return ""
 }
+
+// Get MAC Address
+fun getMACAddress(interfaceName: String?): String {
+    try {
+        val interfaces: List<NetworkInterface> =
+            Collections.list(NetworkInterface.getNetworkInterfaces())
+        for (intf in interfaces) {
+            if (interfaceName != null) {
+                if (!intf.name.equals(interfaceName, ignoreCase = true)) continue
+            }
+            val mac = intf.hardwareAddress ?: return ""
+            val buf = StringBuilder()
+            for (aMac in mac) buf.append(String.format("%02X:", aMac))
+            if (buf.isNotEmpty()) buf.deleteCharAt(buf.length - 1)
+            return buf.toString()
+        }
+    } catch (ignored: java.lang.Exception) {
+    } // for now eat exceptions
+    return ""
+}
+
+// Android ID
+val Context.androidID: String @SuppressLint("HardwareIds")
+get() = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
 
 // Get System Bar Height
 fun Context.getNavBarHeight(): Int {
