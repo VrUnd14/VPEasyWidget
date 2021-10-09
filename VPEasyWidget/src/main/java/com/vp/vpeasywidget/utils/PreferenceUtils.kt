@@ -9,33 +9,33 @@ class PreferenceUtils(context: Context) {
     private val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     private var editor: SharedPreferences.Editor? = null
 
-    fun setPreferences(key: String, value: String = "") {
+    fun setPreferences(key: String, value: String) {
         editor = pref.edit()
         editor?.putString(key, value)
         editor?.apply()
     }
 
-    fun setPreferences(key: String, value: Int = 0) {
+    fun setPreferences(key: String, value: Int) {
         editor = pref.edit()
         editor?.putInt(key, value)
         editor?.apply()
     }
 
-    fun setPreferences(key: String, value: Boolean = false) {
+    fun setPreferences(key: String, value: Boolean) {
         editor = pref.edit()
         editor?.putBoolean(key, value)
         editor?.apply()
     }
 
-    fun getPreference(key: String, Default: String = ""): String? {
+    fun getPreference(key: String, Default: String): String? {
         return pref.getString(key, Default)
     }
 
-    fun getPreference(key: String, Default: Int = 0): Int {
+    fun getPreference(key: String, Default: Int): Int {
         return pref.getInt(key, Default)
     }
 
-    fun getPreference(key: String, Default: Boolean = false): Boolean {
+    fun getPreference(key: String, Default: Boolean): Boolean {
         return pref.getBoolean(key, Default)
     }
 
