@@ -209,14 +209,12 @@ fun getIPAddress(): String {
 }
 
 // Get MAC Address
-fun getMACAddress(interfaceName: String?): String {
+fun getMACAddress(interfaceName: String = "wlan0"): String {
     try {
         val interfaces: List<NetworkInterface> =
             Collections.list(NetworkInterface.getNetworkInterfaces())
         for (intf in interfaces) {
-            if (interfaceName != null) {
-                if (!intf.name.equals(interfaceName, ignoreCase = true)) continue
-            }
+            if (!intf.name.equals(interfaceName, ignoreCase = true)) continue
             val mac = intf.hardwareAddress ?: return ""
             val buf = StringBuilder()
             for (aMac in mac) buf.append(String.format("%02X:", aMac))
