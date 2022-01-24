@@ -60,6 +60,7 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         set(value) {
             field = value
             vpLabelTop.setTextColor(field)
+            vpLabel.setTextColor(field)
             vpDropIcon.setColorFilter(field, PorterDuff.Mode.SRC_ATOP)
         }
 
