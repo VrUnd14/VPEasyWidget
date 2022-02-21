@@ -27,15 +27,15 @@ class PreferenceUtils(context: Context) {
         editor?.apply()
     }
 
-    fun getPreference(key: String, Default: String): String? {
+    fun getPreference(key: String, Default: String = ""): String? {
         return pref.getString(key, Default)
     }
 
-    fun getPreference(key: String, Default: Int): Int {
+    fun getPreference(key: String, Default: Int = 0): Int {
         return pref.getInt(key, Default)
     }
 
-    fun getPreference(key: String, Default: Boolean): Boolean {
+    fun getPreference(key: String, Default: Boolean = false): Boolean {
         return pref.getBoolean(key, Default)
     }
 

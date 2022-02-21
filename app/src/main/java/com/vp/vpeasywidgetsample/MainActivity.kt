@@ -5,14 +5,12 @@ import android.content.Intent
 import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vp.vpeasywidget.utils.GridSpacingItemDecoration
 import com.vp.vpeasywidget.utils.generateRandomColor
@@ -23,7 +21,6 @@ import com.vp.vpeasywidgetsample.models.WidgetModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.widget_item.view.*
 import org.json.JSONArray
-import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                         "VPNoDataWidget" -> startActivity(Intent(context, VPNoDataExample::class.java))
                         "VPSpinner" -> startActivity(Intent(context, VPSpinnerExample::class.java))
                         "VPEditText" -> startActivity(Intent(context, VPEditTextExample::class.java))
+                        "VPNonScrollListGrid" -> startActivity(Intent(context, VPNonScrollListGridExample::class.java))
+                        "VPLayouts" -> startActivity(Intent(context, VPLayoutsExample::class.java))
                     }
                 }
             }

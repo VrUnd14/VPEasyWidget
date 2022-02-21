@@ -14,7 +14,7 @@ import com.vp.vpeasywidget.utils.px
 import com.vp.vpeasywidget.utils.setVisible
 import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
 
-class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
+    class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val mContext = context
 

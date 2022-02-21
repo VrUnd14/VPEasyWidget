@@ -12,6 +12,6 @@ class WidgetModel() : Serializable {
 
     constructor(j: JSONObject) : this() {
         widget = j.optString("widget")
-        lastUpdate = j.optString("lastUpdate").changeDateFormat("dd/MM/YYYY", "MMM dd, yyyy")!!
+        lastUpdate = j.optString("lastUpdate").changeDateFormat("dd/MM/yyyy", "MMM dd, yyyy")!!
     }
 }

@@ -18,11 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".VPTextViewExample"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".VPImageViewExample"
             android:screenOrientation="portrait" />
@@ -34,6 +32,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".VPEditTextExample"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".VPLayoutsExample"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".VPNonScrollListGridExample"
             android:screenOrientation="portrait" />
     </application>
 

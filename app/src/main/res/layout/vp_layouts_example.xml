@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VPLayoutsExample">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Linear Layout Example"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.vp.vpeasywidget.widgets.VPLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:ll_backColor="#f68d5a"
+        app:ll_cornerRadius="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Captain Marvel"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Captain America"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </com.vp.vpeasywidget.widgets.VPLinearLayout>
+
+    <com.vp.vpeasywidget.widgets.VPLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:ll_backColor="#f2f2f2"
+        app:ll_borderColor="@color/purple_500"
+        app:ll_borderWidth="0.5dp"
+        app:ll_cornerRadius="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hulk - "
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="Thor"
+            android:textStyle="bold" />
+    </com.vp.vpeasywidget.widgets.VPLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginVertical="15dp"
+        android:background="#e3e3e3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="Relative Layout Example"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <com.vp.vpeasywidget.widgets.VPRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:rl_backColor="#c60a51">
+
+        <TextView
+            android:id="@+id/kek1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Captain Marvel"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kek1"
+            android:layout_marginTop="3dp"
+            android:text="Captain America"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </com.vp.vpeasywidget.widgets.VPRelativeLayout>
+
+    <com.vp.vpeasywidget.widgets.VPRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:rl_backColor="#fcf1f1"
+        app:rl_borderColor="@color/purple_500"
+        app:rl_borderWidth="1dp"
+        app:rl_cornerRadius="10dp">
+
+        <TextView
+            android:id="@+id/kek2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hulk - "
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/kek2"
+            android:text="Thor"
+            android:textStyle="bold" />
+    </com.vp.vpeasywidget.widgets.VPRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginVertical="15dp"
+        android:background="#e3e3e3" />
+</LinearLayout>
