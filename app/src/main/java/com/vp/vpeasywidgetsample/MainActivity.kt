@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                         "VPEditText" -> startActivity(Intent(context, VPEditTextExample::class.java))
                         "VPNonScrollListGrid" -> startActivity(Intent(context, VPNonScrollListGridExample::class.java))
                         "VPLayouts" -> startActivity(Intent(context, VPLayoutsExample::class.java))
+                        "VPCaptcha" -> startActivity(Intent(context, VPCaptchaExample::class.java))
                     }
                 }
             }

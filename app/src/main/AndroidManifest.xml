@@ -39,6 +39,9 @@
         <activity
             android:name=".VPNonScrollListGridExample"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".VPCaptchaExample"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
