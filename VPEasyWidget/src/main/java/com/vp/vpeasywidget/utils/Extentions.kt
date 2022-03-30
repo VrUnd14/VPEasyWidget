@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import java.net.InetAddress
 import java.net.NetworkInterface
 import java.text.SimpleDateFormat
@@ -131,6 +132,11 @@ fun generateRandomColor(): Int {
 // showToast
 fun Context.showToast(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+}
+
+// showSnackBar
+fun View.buildSnake(msg: String) {
+    Snackbar.make(this, msg, Snackbar.LENGTH_SHORT).show()
 }
 
 // Check Internet

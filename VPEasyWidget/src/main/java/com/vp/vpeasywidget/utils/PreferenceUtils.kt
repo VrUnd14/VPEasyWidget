@@ -27,8 +27,8 @@ class PreferenceUtils(context: Context) {
         editor?.apply()
     }
 
-    fun getPreference(key: String, Default: String = ""): String? {
-        return pref.getString(key, Default)
+    fun getPreference(key: String, Default: String = ""): String {
+        return pref.getString(key, Default).toString()
     }
 
     fun getPreference(key: String, Default: Int = 0): Int {
