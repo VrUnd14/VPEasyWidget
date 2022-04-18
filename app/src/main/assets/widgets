@@ -34,5 +34,9 @@
   {
     "widget": "VPCaptcha",
     "lastUpdate": "29/03/2022"
+  },
+  {
+    "widget": "VPAutocomplete",
+    "lastUpdate": "18/04/2022"
   }
 ]

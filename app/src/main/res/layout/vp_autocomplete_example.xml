@@ -12,47 +12,42 @@
         android:orientation="vertical"
         android:padding="15dp">
 
-        <com.vp.vpeasywidget.widgets.VPSpinner
+        <com.vp.vpeasywidget.widgets.VPAutoComplete
             android:id="@+id/countriesSpn1"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:sp_array="@array/test"
-            app:sp_hasLabel="true"
-            app:sp_labelText="Countries" />
+            app:act_hasLabel="true"
+            app:act_labelText="Countries" />
 
-        <com.vp.vpeasywidget.widgets.VPSpinner
+        <com.vp.vpeasywidget.widgets.VPAutoComplete
             android:id="@+id/countriesSpn2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            app:sp_array="@array/test"
-            app:sp_cross_tint="@color/white"
-            app:sp_hasLabel="false"
-            app:sp_tint="#ff0000" />
+            app:act_cross_tint="@color/white"
+            app:act_hasLabel="false"
+            app:act_tint="#ff0000" />
 
-        <com.vp.vpeasywidget.widgets.VPSpinner
+        <com.vp.vpeasywidget.widgets.VPAutoComplete
             android:id="@+id/countriesSpn3"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="10dp"
-            app:sp_array="@array/test"
-            app:sp_backColor="#e3e3e3"
-            app:sp_cross_tint="@color/white"
-            app:sp_hasBorder="false"
-            app:sp_hasLabel="true"
-            app:sp_labelText="Countries"
-            app:sp_labelTextSize="16dp"
-            app:sp_label_position="top"
-            app:sp_tint="@color/purple_200" />
+            app:act_backColor="#e3e3e3"
+            app:act_cross_tint="@color/white"
+            app:act_hasBorder="false"
+            app:act_hasLabel="true"
+            app:act_labelText="Countries"
+            app:act_label_position="top"
+            app:act_tint="@color/purple_200" />
 
-        <com.vp.vpeasywidget.widgets.VPSpinner
+        <com.vp.vpeasywidget.widgets.VPAutoComplete
             android:id="@+id/countriesSpn4"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="10dp"
-            app:sp_cross_tint="@color/white"
-            app:sp_dropSize="48dp"
-            app:sp_hasLabel="false"
-            app:sp_tint="@color/purple_500" />
+            app:act_dropSize="48dp"
+            app:act_hasLabel="false"
+            app:act_tint="@color/purple_500" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

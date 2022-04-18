@@ -61,9 +61,39 @@
 
         <attr name="sp_dropSize" format="dimension" />
         <attr name="sp_dropIcon" format="reference" />
-        <attr name="sp_dropIconTint" format="color" />
 
         <attr name="sp_array" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="VPAutoComplete">
+        <attr name="act_cornerRadius" format="dimension" />
+        <attr name="act_backColor" format="color" />
+        <attr name="act_hasBorder" format="boolean" />
+        <attr name="act_borderWidth" format="dimension" />
+        <attr name="act_tint" format="color" />
+        <attr name="act_cross_tint" format="color" />
+
+        <attr name="act_hasDrop" format="boolean" />
+        <attr name="act_hasLabel" format="boolean" />
+        <attr name="act_labelText" format="string" />
+
+        <attr name="act_dropSize" format="dimension" />
+        <attr name="act_dropIcon" format="reference" />
+
+        <attr name="act_label_position" format="enum">
+            <enum name="in" value="1" />
+            <enum name="top" value="2" />
+        </attr>
+
+        <attr name="android:hint"/>
+        <attr name="android:text"/>
+        <attr name="android:textColorHint" />
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="act_textAllCaps" format="boolean" />
+        <attr name="android:textStyle"/>
+        <attr name="android:inputType"/>
+        <attr name="android:enabled"/>
     </declare-styleable>
 
     <declare-styleable name="VPEditText">
