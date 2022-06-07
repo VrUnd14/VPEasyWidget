@@ -19,6 +19,7 @@ class VPAutoCompleteExample : AppCompatActivity() {
         supportActionBar?.title = "VpAutocomplete"
 
         countriesSpn3.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
+        countriesSpn2.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

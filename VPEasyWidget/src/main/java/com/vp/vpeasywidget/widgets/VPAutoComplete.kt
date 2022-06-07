@@ -240,12 +240,6 @@ class VPAutoComplete @JvmOverloads constructor(
 
             vpAutoText.setVisible(true)
             vpAutoText.onItemClickListener = MyItemClickListener(this)
-            this.post {
-                if (labelPosition == IN)
-                    vpAutoText.dropDownVerticalOffset = this.height
-                else
-                    vpAutoText.dropDownVerticalOffset = this.height - vpTopLayout.height + 5.px
-            }
         } catch (e: Exception) {
             parent.recycle()
         }
