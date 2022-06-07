@@ -133,6 +133,7 @@ class VPAutoComplete @JvmOverloads constructor(
             vpAutoText.hint = field
         }
     var text = ""
+        get() = vpAutoText.trimmedText
         set(value) {
             field = value
             vpAutoText.setText(field)
