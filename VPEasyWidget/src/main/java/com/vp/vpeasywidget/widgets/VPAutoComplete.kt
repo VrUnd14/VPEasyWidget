@@ -175,9 +175,10 @@ class VPAutoComplete @JvmOverloads constructor(
             vpAutoText.inputType = field
         }
 
-    private var enable = true
+    var enable = true
         set(value) {
             field = value
+            this.isEnabled = field
             vpAutoText.isEnabled = field
         }
 

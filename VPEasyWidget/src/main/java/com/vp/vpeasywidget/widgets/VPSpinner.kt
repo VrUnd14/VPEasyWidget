@@ -129,7 +129,7 @@ import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
         }
         get() = vpSpinner.selectedItemPosition
 
-    val selectedItem: Any
+    val selectedItem: Any?
         get() = vpSpinner.selectedItem
 
 
