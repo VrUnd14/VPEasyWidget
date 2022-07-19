@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.appcompat.widget.AppCompatTextView
 import com.vp.vpeasywidget.R
 import com.vp.vpeasywidget.utils.getDrawableRes
 
@@ -125,6 +124,11 @@ class VPEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet
                     super.setTypeface(typeface, Typeface.NORMAL)
             }
         }
+
+    override fun setEnabled(enabled: Boolean) {
+        this.alpha = 1F.takeIf { enabled } ?: 0.5F
+        super.setEnabled(enabled)
+    }
 
     init {
         val shape = GradientDrawable()
