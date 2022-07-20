@@ -242,6 +242,10 @@ class VPAutoComplete @JvmOverloads constructor(
 
             vpAutoText.setVisible(true)
             vpAutoText.onItemClickListener = MyItemClickListener(this)
+
+            vpDropFrame.setOnClickListener {
+                vpAutoText.showDropDown()
+            }
         } catch (e: Exception) {
             parent.recycle()
         }
