@@ -25,7 +25,8 @@
         android:orientation="vertical"
         android:padding="10dp"
         app:ll_backColor="#f68d5a"
-        app:ll_cornerRadius="8dp">
+        app:ll_capsuleRadius="8dp"
+        app:ll_isCapsule="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
         app:ll_backColor="#f2f2f2"
         app:ll_borderColor="@color/purple_500"
         app:ll_borderWidth="0.5dp"
-        app:ll_cornerRadius="10dp">
+        app:ll_isCapsule="true"
+        app:ll_capsuleRadius="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,7 +125,8 @@
         app:rl_backColor="#fcf1f1"
         app:rl_borderColor="@color/purple_500"
         app:rl_borderWidth="1dp"
-        app:rl_cornerRadius="10dp">
+        app:rl_capsuleRadius="10dp"
+        app:rl_isCapsule="true">
 
         <TextView
             android:id="@+id/kek2"

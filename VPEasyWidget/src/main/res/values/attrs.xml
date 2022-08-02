@@ -122,21 +122,36 @@
     </declare-styleable>
 
     <declare-styleable name="VPLinearLayout">
-        <attr name="ll_cornerRadius" format="dimension" />
+        <attr name="ll_isCapsule" format="boolean" />
+        <attr name="ll_capsuleRadius" format="dimension" />
+        <attr name="ll_cornerRadiusTopLeft" format="dimension" />
+        <attr name="ll_cornerRadiusBottomLeft" format="dimension" />
+        <attr name="ll_cornerRadiusTopRight" format="dimension" />
+        <attr name="ll_cornerRadiusBottomRight" format="dimension" />
         <attr name="ll_backColor" format="color" />
         <attr name="ll_borderWidth" format="dimension" />
         <attr name="ll_borderColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="VPRelativeLayout">
-        <attr name="rl_cornerRadius" format="dimension" />
+        <attr name="rl_isCapsule" format="boolean" />
+        <attr name="rl_capsuleRadius" format="dimension" />
+        <attr name="rl_cornerRadiusTopLeft" format="dimension" />
+        <attr name="rl_cornerRadiusBottomLeft" format="dimension" />
+        <attr name="rl_cornerRadiusTopRight" format="dimension" />
+        <attr name="rl_cornerRadiusBottomRight" format="dimension" />
         <attr name="rl_backColor" format="color" />
         <attr name="rl_borderWidth" format="dimension" />
         <attr name="rl_borderColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="VPFrameLayout">
-        <attr name="fl_cornerRadius" format="dimension" />
+        <attr name="fl_isCapsule" format="boolean" />
+        <attr name="fl_capsuleRadius" format="dimension" />
+        <attr name="fl_cornerRadiusTopLeft" format="dimension" />
+        <attr name="fl_cornerRadiusBottomLeft" format="dimension" />
+        <attr name="fl_cornerRadiusTopRight" format="dimension" />
+        <attr name="fl_cornerRadiusBottomRight" format="dimension" />
         <attr name="fl_backColor" format="color" />
         <attr name="fl_borderWidth" format="dimension" />
         <attr name="fl_borderColor" format="color" />

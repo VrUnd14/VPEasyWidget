@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/VrUnd's Workspace/VPEasyWidget/app/src/main/res/layout/vp_layouts_example.xml" value="0.27291666666666664" />
         <entry key="VPEasyWidget/src/main/res/layout/vp_auto_spinner.xml" value="0.16058763931104356" />
         <entry key="app/src/main/res/layout/vp_autocomplete_example.xml" value="0.11" />
-        <entry key="app/src/main/res/layout/vp_edit_text_example.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/vp_spinner_example.xml" value="0.16058763931104356" />
       </map>
     </option>
