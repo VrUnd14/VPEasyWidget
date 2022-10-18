@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             app:sp_array="@array/test"
+            android:enabled="false"
             app:sp_hasLabel="true"
             app:sp_labelText="Countries" />
 

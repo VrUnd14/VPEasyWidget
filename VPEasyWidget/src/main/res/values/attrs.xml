@@ -63,6 +63,7 @@
         <attr name="sp_dropIcon" format="reference" />
 
         <attr name="sp_array" format="reference" />
+        <attr name="android:enabled"/>
     </declare-styleable>
 
     <declare-styleable name="VPAutoComplete">

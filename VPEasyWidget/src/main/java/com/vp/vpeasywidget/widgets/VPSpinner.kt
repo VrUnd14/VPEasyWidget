@@ -14,7 +14,7 @@ import com.vp.vpeasywidget.utils.px
 import com.vp.vpeasywidget.utils.setVisible
 import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
 
-    class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
+class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val mContext = context
 
@@ -132,11 +132,22 @@ import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
     val selectedItem: Any?
         get() = vpSpinner.selectedItem
 
+    var enable = true
+        set(value) {
+            field = value
+            this.isEnabled = field
+            vpSpinner.isEnabled = field
+        }
 
     var itemSelectedListener: OnItemSelectedListener? = null
 
     val instance: VPSpinner
         get() = this
+
+    override fun isEnabled(): Boolean {
+        this.alpha = 1F.takeIf { enable } ?: 0.5F
+        return super.isEnabled()
+    }
 
     init {
         View.inflate(mContext, R.layout.vp_auto_spinner, this)
@@ -156,6 +167,7 @@ import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
 
             dropSize = parent.getDimensionPixelSize(R.styleable.VPSpinner_sp_dropSize, 36.px).toFloat()
             dropIcon = mContext.getDrawableRes(parent.getResourceId(R.styleable.VPSpinner_sp_dropIcon, R.drawable.vp_drop_icon))
+            enable = parent.getBoolean(R.styleable.VPAutoComplete_android_enabled, enable)
 
             if (parent.hasValue(R.styleable.VPSpinner_sp_array)) {
                 val arrayID: Int = parent.getResourceId(R.styleable.VPSpinner_sp_array, 0)
