@@ -5,12 +5,14 @@ import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.widget.*
 import androidx.core.widget.ImageViewCompat
 import com.vp.vpeasywidget.R
 import com.vp.vpeasywidget.utils.getDrawableRes
 import com.vp.vpeasywidget.utils.px
+import com.vp.vpeasywidget.utils.sPx
 import com.vp.vpeasywidget.utils.setVisible
 import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
 
@@ -99,6 +101,12 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
             vpLabelTop.text = labelText
         }
 
+    var labelTextSize = 16.sPx
+        set(value) {
+            field = value
+            vpLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, field.toFloat())
+        }
+
     var dropSize = 36.px.toFloat()
         set(value) {
             field = value
@@ -161,6 +169,7 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
             crossTintColor = parent.getColor(R.styleable.VPSpinner_sp_cross_tint, 0xFFc3c3c3.toInt())
 
             hasLabel = parent.getBoolean(R.styleable.VPSpinner_sp_hasLabel, true)
+            labelTextSize = parent.getDimensionPixelSize(R.styleable.VPSpinner_sp_labelTextSize, labelTextSize)
             labelPosition = parent.getInt(R.styleable.VPSpinner_sp_label_position, IN)
             if (parent.hasValue(R.styleable.VPSpinner_sp_labelText))
                 labelText = parent.getString(R.styleable.VPSpinner_sp_labelText).toString()

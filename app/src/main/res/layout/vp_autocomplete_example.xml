@@ -17,6 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             app:act_hasLabel="true"
+            app:act_labelTextSize="12sp"
+            app:act_cross_tint="@color/black"
             app:act_labelText="Countries" />
 
         <com.vp.vpeasywidget.widgets.VPAutoComplete

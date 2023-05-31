@@ -2,6 +2,7 @@ package com.vp.vpeasywidget.widgets
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.Log
@@ -9,6 +10,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
 import com.vp.vpeasywidget.R
+import com.vp.vpeasywidget.utils.px
 import com.vp.vpeasywidget.utils.sPx
 import kotlinx.android.synthetic.main.vp_no_data.view.*
 
@@ -20,7 +22,23 @@ class VPNoDataWidget @JvmOverloads constructor(context: Context, attrs: Attribut
         set(value) {
             field = value
             iconNoData.setImageResource(icon)
-            Log.e("vsbdvdsbv", field.toString())
+        }
+
+    var iconSize = 120.px
+        set(value) {
+            field = value
+            val lp = iconNoData.layoutParams
+            lp.width = field
+            lp.height = field
+            iconNoData.layoutParams = lp
+        }
+
+    var iconTint = 0
+        set(value) {
+            field = value
+            if (field != 0) {
+                iconNoData.setColorFilter(iconTint, PorterDuff.Mode.SRC_ATOP)
+            }
         }
 
     var text = "No data found!!"
@@ -56,6 +74,8 @@ class VPNoDataWidget @JvmOverloads constructor(context: Context, attrs: Attribut
         textColor = parent.getColor(R.styleable.VPNoDataWidget_android_textColor, textColor)
         textStyle = parent.getInt(R.styleable.VPNoDataWidget_android_textStyle, textStyle)
         icon = parent.getResourceId(R.styleable.VPNoDataWidget_no_icon, icon)
+        iconSize = parent.getDimensionPixelSize(R.styleable.VPNoDataWidget_no_iconSize, iconSize)
+        iconTint = parent.getColor(R.styleable.VPNoDataWidget_no_iconTint, iconTint)
         parent.recycle()
     }
 }

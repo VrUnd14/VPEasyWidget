@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -237,6 +238,7 @@ val Context.androidID: String @SuppressLint("HardwareIds")
 get() = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
 
 // Get System Bar Height
+@SuppressLint("InternalInsetResource")
 fun Context.getNavBarHeight(): Int {
     var status = 0
     val resourceId = this.resources.getIdentifier("navigation_bar_height", "dimen", "android")
@@ -246,6 +248,7 @@ fun Context.getNavBarHeight(): Int {
     return status
 }
 
+@SuppressLint("InternalInsetResource")
 fun Context.getStatusBarHeight(): Int {
     var status = 0
     val resourceId = this.resources.getIdentifier("status_bar_height", "dimen", "android")
@@ -257,3 +260,14 @@ fun Context.getStatusBarHeight(): Int {
 
 // Trimmed Text
 val TextView.trimmedText: String get() = this.text.toString().trim()
+
+fun Context.getDrawableFromName(name: String): Drawable {
+    val resourceId = resources.getIdentifier(name, "drawable", packageName)
+    return ContextCompat.getDrawable(this, resourceId) ?: ColorDrawable(0x00000000)
+}
+
+val randomId: String
+    get() {
+        val cal = Calendar.getInstance()
+        return cal.time.convertString("yyyyMMddHHmmss") ?: ""
+    }

@@ -107,6 +107,12 @@ class VPAutoComplete @JvmOverloads constructor(
             vpLabelTop.text = labelText
         }
 
+    var labelTextSize = 16.sPx
+        set(value) {
+            field = value
+            vpLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, field.toFloat())
+        }
+
     var dropSize = 36.px.toFloat()
         set(value) {
             field = value
@@ -215,6 +221,7 @@ class VPAutoComplete @JvmOverloads constructor(
                 parent.getInt(R.styleable.VPAutoComplete_act_label_position, labelPosition)
             if (parent.hasValue(R.styleable.VPAutoComplete_act_labelText))
                 labelText = parent.getString(R.styleable.VPAutoComplete_act_labelText).toString()
+            labelTextSize = parent.getDimensionPixelSize(R.styleable.VPAutoComplete_act_labelTextSize, labelTextSize)
 
             dropSize =
                 parent.getDimensionPixelSize(R.styleable.VPAutoComplete_act_dropSize, 36.px)

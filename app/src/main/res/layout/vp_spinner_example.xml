@@ -16,10 +16,12 @@
             android:id="@+id/countriesSpn1"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:sp_array="@array/test"
             android:enabled="false"
+            app:sp_array="@array/test"
+            app:sp_cross_tint="@color/black"
             app:sp_hasLabel="true"
-            app:sp_labelText="Countries" />
+            app:sp_labelText="Countries"
+            app:sp_labelTextSize="12sp" />
 
         <com.vp.vpeasywidget.widgets.VPSpinner
             android:id="@+id/countriesSpn2"
