@@ -6,19 +6,26 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.widget.Adapter
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Filterable
+import android.widget.RelativeLayout
+import android.widget.SpinnerAdapter
 import androidx.core.widget.ImageViewCompat
 import com.vp.vpeasywidget.R
+import com.vp.vpeasywidget.databinding.VpAutoSpinnerBinding
 import com.vp.vpeasywidget.utils.getDrawableRes
 import com.vp.vpeasywidget.utils.px
 import com.vp.vpeasywidget.utils.sPx
 import com.vp.vpeasywidget.utils.setVisible
-import kotlinx.android.synthetic.main.vp_auto_spinner.view.*
 
 class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RelativeLayout(context, attrs, defStyleAttr) {
 
     private val mContext = context
+    private val binding = VpAutoSpinnerBinding.inflate(LayoutInflater.from(context), this, true)
 
     companion object {
         const val IN = 1
@@ -34,21 +41,21 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     var backColor = 0xFFF1F1F1.toInt()
         set(value) {
             field = value
-            val mainGD = vpParentLayout.background as GradientDrawable
+            val mainGD = binding.vpParentLayout.background as GradientDrawable
             mainGD.setColor(field)
         }
 
     var hasBorder = true
         set(value) {
             field = value
-            val mainGD = vpParentLayout.background as GradientDrawable
+            val mainGD = binding.vpParentLayout.background as GradientDrawable
             mainGD.setStroke(borderWidth.toInt().takeIf { field } ?: 0, tintColor)
         }
 
     var borderWidth = 1.px.toFloat()
         set(value) {
             field = value
-            val mainGD = vpParentLayout.background as GradientDrawable
+            val mainGD = binding.vpParentLayout.background as GradientDrawable
             mainGD.setStroke(field.toInt().takeIf { hasBorder } ?: 0, tintColor)
         }
 
@@ -61,64 +68,64 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     var crossTintColor = 0xFFc3c3c3.toInt()
         set(value) {
             field = value
-            vpLabelTop.setTextColor(field)
-            vpLabel.setTextColor(field)
-            vpDropIcon.setColorFilter(field, PorterDuff.Mode.SRC_ATOP)
+            binding.vpLabelTop.setTextColor(field)
+            binding.vpLabel.setTextColor(field)
+            binding.vpDropIcon.setColorFilter(field, PorterDuff.Mode.SRC_ATOP)
         }
 
     var hasLabel = true
         set(value) {
             field = value
-            vpInLayout.setVisible(field && labelPosition == IN)
-            vpTopLayout.setVisible(field && labelPosition == TOP)
-            val lp = vpSpinner.layoutParams as MarginLayoutParams
+            binding.vpInLayout.setVisible(field && labelPosition == IN)
+            binding.vpTopLayout.setVisible(field && labelPosition == TOP)
+            val lp = binding.vpSpinner.layoutParams as MarginLayoutParams
             if (labelPosition == IN) {
                 lp.leftMargin = (-10).px.takeIf { hasLabel } ?: 0
             } else {
                 lp.leftMargin = 0
             }
-            vpSpinner.layoutParams = lp
+            binding.vpSpinner.layoutParams = lp
         }
 
     var labelPosition = IN
         set(value) {
             field = value
-            vpInLayout.setVisible(hasLabel && field == IN)
-            vpTopLayout.setVisible(hasLabel && field == TOP)
-            val lp = vpSpinner.layoutParams as MarginLayoutParams
+            binding.vpInLayout.setVisible(hasLabel && field == IN)
+            binding.vpTopLayout.setVisible(hasLabel && field == TOP)
+            val lp = binding.vpSpinner.layoutParams as MarginLayoutParams
             if (labelPosition == IN) {
                 lp.leftMargin = (-10).px.takeIf { hasLabel } ?: 0
             } else {
                 lp.leftMargin = 0
             }
-            vpSpinner.layoutParams = lp
+            binding.vpSpinner.layoutParams = lp
         }
 
     var labelText = ""
         set(value) {
             field = value
-            vpLabel.text = labelText
-            vpLabelTop.text = labelText
+            binding.vpLabel.text = labelText
+            binding.vpLabelTop.text = labelText
         }
 
     var labelTextSize = 16.sPx
         set(value) {
             field = value
-            vpLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, field.toFloat())
+            binding.vpLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX, field.toFloat())
         }
 
     var dropSize = 36.px.toFloat()
         set(value) {
             field = value
-            val params = vpDropFrame.layoutParams
+            val params = binding.vpDropFrame.layoutParams
             params.width = dropSize.toInt()
-            vpDropFrame.layoutParams = params
+            binding.vpDropFrame.layoutParams = params
         }
 
     var dropIcon = mContext.getDrawableRes(R.drawable.vp_drop_icon)
         set(value) {
             field = value
-            vpDropIcon.setImageDrawable(dropIcon)
+            binding.vpDropIcon.setImageDrawable(dropIcon)
         }
 
     var defaultArray: Array<String>? = null
@@ -126,25 +133,25 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
             field = value
             if (defaultArray != null) {
                 val adp = ArrayAdapter<String>(mContext, R.layout.vp_drop_item, R.id.txt, defaultArray!!)
-                vpSpinner.adapter = adp
+                binding.vpSpinner.adapter = adp
             }
         }
 
     var selectedPosition = 0
         set(value) {
             field = value
-            vpSpinner.setSelection(field)
+            binding.vpSpinner.setSelection(field)
         }
-        get() = vpSpinner.selectedItemPosition
+        get() = binding.vpSpinner.selectedItemPosition
 
     val selectedItem: Any?
-        get() = vpSpinner.selectedItem
+        get() = binding.vpSpinner.selectedItem
 
     var enable = true
         set(value) {
             field = value
             this.isEnabled = field
-            vpSpinner.isEnabled = field
+            binding.vpSpinner.isEnabled = field
         }
 
     var itemSelectedListener: OnItemSelectedListener? = null
@@ -158,7 +165,6 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     }
 
     init {
-        View.inflate(mContext, R.layout.vp_auto_spinner, this)
         val parent = mContext.obtainStyledAttributes(attrs, R.styleable.VPSpinner)
         try {
             cornerRadius = parent.getDimensionPixelSize(R.styleable.VPSpinner_sp_cornerRadius, 5.px).toFloat()
@@ -183,8 +189,8 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
                 defaultArray = parent.resources.getStringArray(arrayID)
             }
 
-            vpSpinner.setVisible(true)
-            vpSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            binding.vpSpinner.setVisible(true)
+            binding.vpSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -195,9 +201,9 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
             }
             this.post {
                 if (labelPosition == IN)
-                    vpSpinner.dropDownVerticalOffset = this.height
+                    binding.vpSpinner.dropDownVerticalOffset = this.height
                 else
-                    vpSpinner.dropDownVerticalOffset = this.height - vpTopLayout.height + 5.px
+                    binding.vpSpinner.dropDownVerticalOffset = this.height - binding.vpTopLayout.height + 5.px
             }
         } catch (e: Exception) {
             parent.recycle()
@@ -205,35 +211,35 @@ class VPSpinner @JvmOverloads constructor(context: Context, attrs: AttributeSet?
     }
 
     private fun updateCorners() {
-        val mainGD = vpParentLayout.background as GradientDrawable
+        val mainGD = binding.vpParentLayout.background as GradientDrawable
         mainGD.cornerRadius = cornerRadius
-        val dropGD = vpDropFrame.background as GradientDrawable
+        val dropGD = binding.vpDropFrame.background as GradientDrawable
         dropGD.cornerRadii = floatArrayOf(0f, 0f, cornerRadius, cornerRadius, cornerRadius, cornerRadius, 0f, 0f)
-        val topLblGD = vpLabelTop.background as GradientDrawable
+        val topLblGD = binding.vpLabelTop.background as GradientDrawable
         topLblGD.cornerRadii = floatArrayOf(cornerRadius, cornerRadius, 0f, 0f, 0f, 0f, 0f, 0f)
-        val lblGD = vpLabel.background as GradientDrawable
+        val lblGD = binding.vpLabel.background as GradientDrawable
         lblGD.cornerRadii = floatArrayOf(cornerRadius, cornerRadius, 0f, 0f, 0f, 0f, cornerRadius, cornerRadius)
     }
 
     private fun setTint() {
-        val mainGD = vpParentLayout.background as GradientDrawable
+        val mainGD = binding.vpParentLayout.background as GradientDrawable
         mainGD.setStroke(borderWidth.toInt().takeIf { hasBorder } ?: 0, tintColor)
-        val labelGD = vpLabel.background as GradientDrawable
+        val labelGD = binding.vpLabel.background as GradientDrawable
         labelGD.setColor(tintColor)
-        val labelGDTop = vpLabelTop.background as GradientDrawable
+        val labelGDTop = binding.vpLabelTop.background as GradientDrawable
         labelGDTop.setColor(tintColor)
-        ImageViewCompat.setImageTintList(curveImg, ColorStateList.valueOf(tintColor))
-        ImageViewCompat.setImageTintList(curveImgTop, ColorStateList.valueOf(tintColor))
-        val dropGD = vpDropFrame.background as GradientDrawable
+        ImageViewCompat.setImageTintList(binding.curveImg, ColorStateList.valueOf(tintColor))
+        ImageViewCompat.setImageTintList(binding.curveImgTop, ColorStateList.valueOf(tintColor))
+        val dropGD = binding.vpDropFrame.background as GradientDrawable
         dropGD.setColor(tintColor)
     }
 
     fun <T> setAdapter(adapter: T) where T : SpinnerAdapter?, T : Filterable? {
-        vpSpinner.adapter = adapter
+        binding.vpSpinner.adapter = adapter
     }
 
     fun getAdapter(): Adapter? {
-        return vpSpinner.adapter
+        return binding.vpSpinner.adapter
     }
 
     interface OnItemSelectedListener {

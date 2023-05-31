@@ -3,9 +3,6 @@ package com.vp.vpeasywidgetsample
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.vp.vpeasywidget.utils.showToast
-import com.vp.vpeasywidget.widgets.VPTextView
-import kotlinx.android.synthetic.main.vp_text_view_example.*
 
 class VPTextViewExample : AppCompatActivity() {
 

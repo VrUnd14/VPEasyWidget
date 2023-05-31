@@ -10,7 +10,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.vp.vpeasywidget.R
 import kotlin.math.ceil
 
-@Suppress("DEPRECATION")
 class VPImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatImageView(context, attrs, defStyleAttr) {
 
     private val mContext = context

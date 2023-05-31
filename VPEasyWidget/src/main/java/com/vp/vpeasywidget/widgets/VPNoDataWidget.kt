@@ -5,68 +5,67 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
-import android.view.View
+import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.vp.vpeasywidget.R
+import com.vp.vpeasywidget.databinding.VpNoDataBinding
 import com.vp.vpeasywidget.utils.px
 import com.vp.vpeasywidget.utils.sPx
-import kotlinx.android.synthetic.main.vp_no_data.view.*
 
 class VPNoDataWidget @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val mContext = context
+    private val binding = VpNoDataBinding.inflate(LayoutInflater.from(context), this, true)
 
     var icon = 0
         set(value) {
             field = value
-            iconNoData.setImageResource(icon)
+            binding.iconNoData.setImageResource(icon)
         }
 
     var iconSize = 120.px
         set(value) {
             field = value
-            val lp = iconNoData.layoutParams
+            val lp = binding.iconNoData.layoutParams
             lp.width = field
             lp.height = field
-            iconNoData.layoutParams = lp
+            binding.iconNoData.layoutParams = lp
         }
 
     var iconTint = 0
         set(value) {
             field = value
             if (field != 0) {
-                iconNoData.setColorFilter(iconTint, PorterDuff.Mode.SRC_ATOP)
+                binding.iconNoData.setColorFilter(iconTint, PorterDuff.Mode.SRC_ATOP)
             }
         }
 
     var text = "No data found!!"
         set(value) {
             field = value
-            textNoData.text = text
+            binding.textNoData.text = text
         }
 
     var textSize = 20.sPx
         set(value) {
             field = value
-            textNoData.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize.toFloat())
+            binding.textNoData.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize.toFloat())
         }
 
     var textColor = Color.BLACK
         set(value) {
             field = value
-            textNoData.setTextColor(textColor)
+            binding.textNoData.setTextColor(textColor)
         }
 
     var textStyle = Typeface.NORMAL
         set(value) {
             field = value
-            textNoData.setTypeface(textNoData.typeface, textStyle)
+            binding.textNoData.setTypeface(binding.textNoData.typeface, textStyle)
         }
 
     init {
-        View.inflate(mContext, R.layout.vp_no_data, this)
         val parent = mContext.obtainStyledAttributes(attrs, R.styleable.VPNoDataWidget)
         if (parent.hasValue(R.styleable.VPNoDataWidget_android_text))
             text = parent.getString(R.styleable.VPNoDataWidget_android_text).toString()

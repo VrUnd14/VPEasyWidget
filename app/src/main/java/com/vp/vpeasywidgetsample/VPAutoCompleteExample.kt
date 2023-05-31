@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.vp_autocomplete_example.*
+import com.vp.vpeasywidgetsample.databinding.VpAutocompleteExampleBinding
 
 class VPAutoCompleteExample : AppCompatActivity() {
 
@@ -12,14 +12,15 @@ class VPAutoCompleteExample : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.vp_autocomplete_example)
+        val binding = VpAutocompleteExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "VpAutocomplete"
 
-        countriesSpn3.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
-        countriesSpn2.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
+        binding.countriesSpn3.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
+        binding.countriesSpn2.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

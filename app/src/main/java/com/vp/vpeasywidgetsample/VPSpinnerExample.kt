@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.vp.vpeasywidget.utils.px
-import kotlinx.android.synthetic.main.vp_no_data_example.*
-import kotlinx.android.synthetic.main.vp_spinner_example.*
+import com.vp.vpeasywidgetsample.databinding.VpSpinnerExampleBinding
 
 class VPSpinnerExample : AppCompatActivity() {
 
@@ -14,13 +12,14 @@ class VPSpinnerExample : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.vp_spinner_example)
+        val binding = VpSpinnerExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "VpSpinner"
 
-        countriesSpn4.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
+        binding.countriesSpn4.setAdapter(ArrayAdapter(context, android.R.layout.simple_list_item_1, arrayOf("Vrund", "Nirali", "Madhavi", "Dev", "Vishva")))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

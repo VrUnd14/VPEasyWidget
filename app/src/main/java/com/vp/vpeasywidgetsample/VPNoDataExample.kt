@@ -3,7 +3,6 @@ package com.vp.vpeasywidgetsample
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.vp_no_data_example.*
 
 class VPNoDataExample : AppCompatActivity() {
 

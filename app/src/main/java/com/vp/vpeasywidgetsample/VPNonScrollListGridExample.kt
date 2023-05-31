@@ -1,28 +1,29 @@
 package com.vp.vpeasywidgetsample
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.vp.vpeasywidget.utils.setVisible
-import kotlinx.android.synthetic.main.list_grid_item.view.*
-import kotlinx.android.synthetic.main.vp_listgrid_example.*
+import com.vp.vpeasywidgetsample.databinding.ListGridItemBinding
+import com.vp.vpeasywidgetsample.databinding.VpListgridExampleBinding
 
 class VPNonScrollListGridExample : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.vp_listgrid_example)
+        val binding = VpListgridExampleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "VPNonScrollListGrid"
 
-        listView.adapter = ListGridAdapter("list")
-        gridView.adapter = ListGridAdapter("grid")
+        binding.listView.adapter = ListGridAdapter("list")
+        binding.gridView.adapter = ListGridAdapter("grid")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -45,9 +46,9 @@ class VPNonScrollListGridExample : AppCompatActivity() {
             return 0
         }
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "ViewHolder")
         override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
-            val root = LayoutInflater.from(this@VPNonScrollListGridExample).inflate(R.layout.list_grid_item, null, false)
+            val root = ListGridItemBinding.inflate(LayoutInflater.from(this@VPNonScrollListGridExample))
             if(type == "list") {
                 root.listText.text = "List Index $position"
             }
@@ -55,7 +56,7 @@ class VPNonScrollListGridExample : AppCompatActivity() {
             root.listText.text = "List Index ${position+1}"
             root.gridText.setVisible(type == "grid")
             root.gridText.text = "${position +1}"
-            return root
+            return root.root
         }
 
     }

@@ -3,13 +3,13 @@ package com.vp.vpeasywidgetsample
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vp.vpeasywidget.utils.GridSpacingItemDecoration
@@ -17,9 +17,9 @@ import com.vp.vpeasywidget.utils.generateRandomColor
 import com.vp.vpeasywidget.utils.getJsonFromAssets
 import com.vp.vpeasywidget.widgets.OnUpdateActionListener
 import com.vp.vpeasywidget.widgets.VPAppUpdate
+import com.vp.vpeasywidgetsample.databinding.ActivityMainBinding
+import com.vp.vpeasywidgetsample.databinding.WidgetItemBinding
 import com.vp.vpeasywidgetsample.models.WidgetModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.widget_item.view.*
 import org.json.JSONArray
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +28,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        widgetList.layoutManager = GridLayoutManager(context, 1)
-        widgetList.addItemDecoration(GridSpacingItemDecoration(1, 8, true))
-        widgetList.adapter = WidgetAdapter()
+        binding.widgetList.layoutManager = GridLayoutManager(context, 1)
+        binding.widgetList.addItemDecoration(GridSpacingItemDecoration(1, 8, true))
+        binding.widgetList.adapter = WidgetAdapter()
     }
 
     inner class WidgetAdapter : RecyclerView.Adapter<WidgetAdapter.Holder>() {
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         @SuppressLint("InflateParams")
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-            val root = LayoutInflater.from(context).inflate(R.layout.widget_item, parent, false)
+            val root = WidgetItemBinding.inflate(LayoutInflater.from(context))
             return Holder(root)
         }
 
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             holder.forwardIC.setColorFilter(data[position].tintColor, PorterDuff.Mode.SRC_ATOP)
         }
 
-        inner class Holder(root: View) : RecyclerView.ViewHolder(root) {
+        inner class Holder(root: WidgetItemBinding) : RecyclerView.ViewHolder(root.root) {
             val colorView: View = root.colorView
             val widgetName: TextView = root.widgetName
             val lastUpdated: TextView = root.lastUpdated
